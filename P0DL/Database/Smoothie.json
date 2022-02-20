@@ -1,0 +1,41 @@
+[
+  {
+    "Name": "VeryBerry",
+    "ComboNumb": 2,
+    "CupSize": "small",
+    "Ingredients": [
+      "Strawberry",
+      "Blueberry",
+      "Spinach",
+      "Raspberry",
+      "Almondmilk"
+    ],
+    "Price": 5
+  },
+  {
+    "Name": "TropicalBreeze",
+    "ComboNumb": 3,
+    "CupSize": "small",
+    "Ingredients": [
+      "Mango",
+      "Passion Fruit",
+      "Spinach",
+      "Pinapple",
+      "Coconut Water"
+    ],
+    "Price": 5
+  },
+  {
+    "Name": "TropicalBreeze",
+    "ComboNumb": 3,
+    "CupSize": "large",
+    "Ingredients": [
+      "Mango",
+      "Passion Fruit",
+      "Spinach",
+      "Pinapple",
+      "Coconut Water"
+    ],
+    "Price": 7
+  }
+]

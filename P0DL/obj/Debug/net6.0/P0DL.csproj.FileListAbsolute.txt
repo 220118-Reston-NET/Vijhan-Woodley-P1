@@ -1,0 +1,15 @@
+C:\Users\PSXSLHP185\P0\P0DL\bin\Debug\net6.0\P0DL.deps.json
+C:\Users\PSXSLHP185\P0\P0DL\bin\Debug\net6.0\P0DL.dll
+C:\Users\PSXSLHP185\P0\P0DL\bin\Debug\net6.0\ref\P0DL.dll
+C:\Users\PSXSLHP185\P0\P0DL\bin\Debug\net6.0\P0DL.pdb
+C:\Users\PSXSLHP185\P0\P0DL\bin\Debug\net6.0\P0Model.dll
+C:\Users\PSXSLHP185\P0\P0DL\bin\Debug\net6.0\P0Model.pdb
+C:\Users\PSXSLHP185\P0\P0DL\obj\Debug\net6.0\P0DL.csproj.AssemblyReference.cache
+C:\Users\PSXSLHP185\P0\P0DL\obj\Debug\net6.0\P0DL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PSXSLHP185\P0\P0DL\obj\Debug\net6.0\P0DL.AssemblyInfoInputs.cache
+C:\Users\PSXSLHP185\P0\P0DL\obj\Debug\net6.0\P0DL.AssemblyInfo.cs
+C:\Users\PSXSLHP185\P0\P0DL\obj\Debug\net6.0\P0DL.csproj.CoreCompileInputs.cache
+C:\Users\PSXSLHP185\P0\P0DL\obj\Debug\net6.0\P0DL.csproj.CopyComplete
+C:\Users\PSXSLHP185\P0\P0DL\obj\Debug\net6.0\P0DL.dll
+C:\Users\PSXSLHP185\P0\P0DL\obj\Debug\net6.0\ref\P0DL.dll
+C:\Users\PSXSLHP185\P0\P0DL\obj\Debug\net6.0\P0DL.pdb
