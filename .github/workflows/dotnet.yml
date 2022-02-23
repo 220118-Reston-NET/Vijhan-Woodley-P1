@@ -22,7 +22,7 @@ jobs:
       name: 'Production'
     defaults:
       run:
-        working-directory: /Vijhan-Woodley-P1 # This might differ depending on where your project/app is in your remote repo
+        working-directory: ./ # This might differ depending on where your project/app is in your remote repo
     
     # Steps are just the sequence of things that this computer/server needs to run to complete a job
     steps:
@@ -84,7 +84,7 @@ jobs:
       shell: pwsh
       run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"220118-Reston-NET_Vijhan-Woodley-P1" /o:"220118-reston-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.exclusion=**P0Api/wwwroot/lib/**,**DL/*.cs,**Api/*.cs /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.vstest.reportsPath="**/TestResults/*.trx"
-          dotnet build ./PokeApi -c Release
+          dotnet build ./P0Api -c Release
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
       
     # We are creating our publish folder for us to use
@@ -98,4 +98,4 @@ jobs:
         app-name: Vijhan
         slot-name: 'Production'
         publish-profile: $${{secrets.AZURE_WEBAPP_PUBLISH_PROFILE}}
-        package: /Vijhan-Woodley-P1/publish
+        package: ./publish
