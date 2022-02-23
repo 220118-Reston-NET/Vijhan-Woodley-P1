@@ -144,7 +144,7 @@ namespace P0DL
         {
             List<Orders> listOfOrders = new List<Orders>();
 
-            string SQLQuery = @"select OrderID, max(totalPrice) from Orders o inner join SmoothieModel s on o.OrderID  = s.forder where s.fcustomer = @cusID group by s.forder, o.OrderID";
+            string SQLQuery = @"select OrderID, max(totalPrice), o.fstore, o.fcustomer from Orders o inner join SmoothieModel s on o.OrderID  = s.forder where s.fcustomer = @cusID group by s.forder, o.OrderID, o.fstore, o.fcustomer";
 
             using (SqlConnection con = new SqlConnection(_connectionStrings))
             {
@@ -160,9 +160,9 @@ namespace P0DL
                 {
                     listOfOrders.Add(new Orders(){
                         OrderID = reader.GetInt32(0),
-                        //fcustomer = reader.GetInt32(1),
-                        //fstore = reader.GetInt32(2),
-                        totalPrice = reader.GetDouble(1)
+                        totalPrice = reader.GetDouble(1),
+                        fstore = reader.GetInt32(2),
+                        fcustomer = reader.GetInt32(3)
                     });
 
                 }

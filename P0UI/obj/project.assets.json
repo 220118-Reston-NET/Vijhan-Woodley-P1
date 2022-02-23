@@ -1034,11 +1034,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PSXSLHP185\\P0\\P0UI\\P0UI.csproj",
+      "projectUniqueName": "C:\\Users\\PSXSLHP185\\P1\\P0UI\\P0UI.csproj",
       "projectName": "P0UI",
-      "projectPath": "C:\\Users\\PSXSLHP185\\P0\\P0UI\\P0UI.csproj",
+      "projectPath": "C:\\Users\\PSXSLHP185\\P1\\P0UI\\P0UI.csproj",
       "packagesPath": "C:\\Users\\PSXSLHP185\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PSXSLHP185\\P0\\P0UI\\obj\\",
+      "outputPath": "C:\\Users\\PSXSLHP185\\P1\\P0UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PSXSLHP185\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1053,14 +1053,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\PSXSLHP185\\P0\\P0BL\\P0BL.csproj": {
-              "projectPath": "C:\\Users\\PSXSLHP185\\P0\\P0BL\\P0BL.csproj"
+            "C:\\Users\\PSXSLHP185\\P1\\P0BL\\P0BL.csproj": {
+              "projectPath": "C:\\Users\\PSXSLHP185\\P1\\P0BL\\P0BL.csproj"
             },
-            "C:\\Users\\PSXSLHP185\\P0\\P0DL\\P0DL.csproj": {
-              "projectPath": "C:\\Users\\PSXSLHP185\\P0\\P0DL\\P0DL.csproj"
+            "C:\\Users\\PSXSLHP185\\P1\\P0DL\\P0DL.csproj": {
+              "projectPath": "C:\\Users\\PSXSLHP185\\P1\\P0DL\\P0DL.csproj"
             },
-            "C:\\Users\\PSXSLHP185\\P0\\P0Model\\P0Model.csproj": {
-              "projectPath": "C:\\Users\\PSXSLHP185\\P0\\P0Model\\P0Model.csproj"
+            "C:\\Users\\PSXSLHP185\\P1\\P0Model\\P0Model.csproj": {
+              "projectPath": "C:\\Users\\PSXSLHP185\\P1\\P0Model\\P0Model.csproj"
             }
           }
         }

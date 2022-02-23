@@ -7,6 +7,8 @@ namespace P0UI
     {
         private Customer _customer = new Customer();
         private ICustomerBL _cusBL;
+
+        string store;
         public ViewOrderHistory(ICustomerBL c_cusBL)
         {
             _cusBL = c_cusBL;
@@ -48,8 +50,15 @@ namespace P0UI
                Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++");
                foreach (Orders order in OrdersList)
                {
+                   if(order.fstore == 1)
+                   {
+                       store = "SmoothieShackBronx";
+                   } else if(order.fstore == 2)
+                   {
+                       store = "SmoothieShackMan";
+                   }
                    
-                   Console.WriteLine("Order: " + order.OrderID + "  Total Price: $" + order.totalPrice);
+                   Console.WriteLine("Order ID: " + order.OrderID + "  Total Price: $" + order.totalPrice + " Store Name: " + store);
                    Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++");
                    List<SmoothieModel> SmoothieList = _cusBL.GetOrderByCustomer(order.OrderID);
                    foreach (SmoothieModel item in SmoothieList)
@@ -60,6 +69,63 @@ namespace P0UI
                     Console.WriteLine("--------------------------------");
 
                 }
+                    
+                    var coco = from smothiecoco in SmoothieList
+                                                where smothiecoco.Name == "CoconutFusion"
+                                                select smothiecoco;
+                    if(coco.Count() > 0)
+                    {
+                        double total = 0;
+                        foreach (var item in coco)
+                        {
+                            total += item.Price;
+                        }
+                        Console.WriteLine("There are " + coco.Count() + " CoconutFusion's that cost $" + total + " in total.");
+
+                    }
+                    var berry = from smothiecoco in SmoothieList
+                                                where smothiecoco.Name == "VeryBerry"
+                                                select smothiecoco;
+                    if(berry.Count() > 0)
+                    {
+                        double total = 0;
+                        foreach (var item in berry)
+                        {
+                            total += item.Price;
+                        }
+                        Console.WriteLine("There are " + berry.Count() + " VeryBerry's that cost $" + total + " in total.");
+
+                    }
+
+                    var trop = from smothiecoco in SmoothieList
+                                                where smothiecoco.Name == "TropicalBreeze"
+                                                select smothiecoco; 
+
+                    if(trop.Count() > 0)
+                    {
+                        double total = 0;
+                        foreach (var item in trop)
+                        {
+                            total += item.Price;
+                        }
+                        Console.WriteLine("There are " + trop.Count() + " TropicalBreeze's that cost $" + total + " in total.");
+
+                    }
+
+                    var protien = from smothiecoco in SmoothieList
+                                                where smothiecoco.Name == "ProtienShake"
+                                                select smothiecoco;  
+
+                    if(protien.Count() > 0)
+                    {
+                        double total = 0;
+                        foreach (var item in protien)
+                        {
+                            total += item.Price;
+                        }
+                        Console.WriteLine("There are " + protien.Count() + " ProtienShake's that cost $" + total + " in total.");
+
+                    }                 
                 Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++");
                }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PSXSLHP185\\P0\\P0Model\\P0Model.csproj": {}
+    "C:\\Users\\PSXSLHP185\\P1\\P0Model\\P0Model.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PSXSLHP185\\P0\\P0Model\\P0Model.csproj": {
+    "C:\\Users\\PSXSLHP185\\P1\\P0Model\\P0Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PSXSLHP185\\P0\\P0Model\\P0Model.csproj",
+        "projectUniqueName": "C:\\Users\\PSXSLHP185\\P1\\P0Model\\P0Model.csproj",
         "projectName": "P0Model",
-        "projectPath": "C:\\Users\\PSXSLHP185\\P0\\P0Model\\P0Model.csproj",
+        "projectPath": "C:\\Users\\PSXSLHP185\\P1\\P0Model\\P0Model.csproj",
         "packagesPath": "C:\\Users\\PSXSLHP185\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PSXSLHP185\\P0\\P0Model\\obj\\",
+        "outputPath": "C:\\Users\\PSXSLHP185\\P1\\P0Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PSXSLHP185\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -652,3 +652,46 @@ Price : $6.5
 2022-02-17 21:08:39.269 -08:00 [INF] Displaying CustomerMenu.
 2022-02-17 21:08:41.594 -08:00 [INF] Displaying MainMenu to user
 2022-02-17 21:08:43.440 -08:00 [INF] Exiting Application
+2022-02-20 16:30:59.483 -08:00 [INF] Exiting Application
+2022-02-20 17:09:36.584 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 17:09:43.503 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 17:11:24.616 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 17:11:27.158 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 17:11:28.911 -08:00 [INF] Displaying MainMenu to user
+2022-02-20 17:11:30.681 -08:00 [INF] Exiting Application
+2022-02-20 17:11:55.613 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 17:12:02.980 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 17:13:02.638 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 17:13:04.239 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 17:13:05.428 -08:00 [INF] Displaying MainMenu to user
+2022-02-20 17:13:06.781 -08:00 [INF] Exiting Application
+2022-02-20 17:18:24.643 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 17:18:29.614 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 17:22:40.673 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 17:22:42.055 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 17:22:43.023 -08:00 [INF] Displaying MainMenu to user
+2022-02-20 17:22:44.533 -08:00 [INF] Exiting Application
+2022-02-20 17:22:52.254 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 17:22:54.765 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 17:23:55.243 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 17:23:57.218 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 17:23:58.419 -08:00 [INF] Displaying MainMenu to user
+2022-02-20 17:24:00.457 -08:00 [INF] Exiting Application
+2022-02-20 17:24:08.267 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 17:24:18.620 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 20:22:31.375 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 20:22:33.014 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 20:22:34.128 -08:00 [INF] Displaying MainMenu to user
+2022-02-20 20:22:35.446 -08:00 [INF] Exiting Application
+2022-02-20 20:22:47.278 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 20:23:01.088 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 20:27:40.032 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 20:27:41.853 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 20:27:43.399 -08:00 [INF] Displaying MainMenu to user
+2022-02-20 20:27:45.430 -08:00 [INF] Exiting Application
+2022-02-20 20:27:58.086 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 20:28:26.556 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 20:29:19.641 -08:00 [INF] Displaying order history menu to the user
+2022-02-20 20:29:21.754 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-20 20:29:23.424 -08:00 [INF] Displaying MainMenu to user
+2022-02-20 20:29:25.732 -08:00 [INF] Exiting Application

@@ -3,8 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P0UI", "P0UI\P0UI.csproj", "{0743FA9E-6197-4B2D-A388-E126582B2A70}"
-EndProject
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P0Model", "P0Model\P0Model.csproj", "{78E5366A-FF33-4F89-82C1-BD8E28D41E32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P0DL", "P0DL\P0DL.csproj", "{B525D44F-6CD0-4C51-A89A-C5A3D602D79F}"
