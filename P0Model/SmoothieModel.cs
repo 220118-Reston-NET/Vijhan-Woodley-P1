@@ -27,13 +27,8 @@ public List<Product> Product
 }
 
 
+public string CupSize { get; set; }
 
-private string _cupSize;
-public string CupSize
-{
-    get { return _cupSize; }
-    set { _cupSize = value; }
-}
 
 
 private List<Ingredients> _ingredients;
@@ -49,6 +44,14 @@ public double Price
     get { return _price; }
     set { _price = value; }
 }
+
+private int _quantity;
+public int Quantity
+{
+    get { return _quantity; }
+    set { _quantity = value; }
+}
+
 public SmoothieModel()
 {
 
@@ -123,11 +126,10 @@ switch (ComboNumb)
 
 }
 
-public SmoothieModel(int ComboNumb, string Cupsize)
+public SmoothieModel(int ComboNumb, string Cupsize, int Quantity)
 {
-    Product _pro = new Product(Cupsize);
-    Price = _pro.Price;
-    this.CupSize = _pro.CupSize;
+    this._quantity = Quantity;
+    this.CupSize = Cupsize;
     this.ComboNumb = ComboNumb;
     _ingredients = new List<Ingredients>();
 Ingredients Coconut = new Ingredients("Coconut");
@@ -191,16 +193,16 @@ switch (ComboNumb)
     //break;
 }
 
-/*if(string.Equals(CupSize, "small", StringComparison.CurrentCultureIgnoreCase))
+if(string.Equals(CupSize, "small", StringComparison.CurrentCultureIgnoreCase))
 {
-    Price = 5.00;
+    Price = 5.00 * (double)_quantity;
 } else if (string.Equals(CupSize, "medium", StringComparison.CurrentCultureIgnoreCase))
 {
-    Price = 6.50;
+    Price = 6.50 * (double)Quantity;
 } else if (string.Equals(CupSize, "large", StringComparison.CurrentCultureIgnoreCase))
 {
-    Price = 7.00;
-} else 
+    Price = 7.00 * (double)Quantity;
+}/* else 
 {
     throw new Exception("Cupsize can be small, medium or large");
 }*/
@@ -208,12 +210,12 @@ switch (ComboNumb)
 
 public SmoothieModel(string Cupsize)
 {
-    
-    Product _pro = new Product(Cupsize);
-    Price = _pro.Price;
-   /* if(string.Equals(_pro.CupSize, "small", StringComparison.CurrentCultureIgnoreCase))
+    this.CupSize = CupSize;
+    /*Product _pro = new Product(Cupsize);
+    Price = _pro.Price;*/
+    if(string.Equals(CupSize, "small", StringComparison.CurrentCultureIgnoreCase))
 {
-        Price = _pro.Price;
+        Price = 5.00;
 } else if (string.Equals(CupSize, "medium", StringComparison.CurrentCultureIgnoreCase))
 {
     Price = 6.50;
@@ -223,7 +225,7 @@ public SmoothieModel(string Cupsize)
 } else 
 {
     throw new Exception("Cupsize can be small, medium or large");
-}*/
+}
 }
 
 public override string ToString()

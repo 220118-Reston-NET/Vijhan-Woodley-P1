@@ -21,6 +21,8 @@ namespace P0BL
 
         List<Orders> GetAllOrdersByCustomer(int c_cusID);
 
+        List<Orders> GetAllOrdersByCustomerbyPrice(int c_cusID);
+
         List<Orders> GetAllOrdersByStore(int s_storeID);
 
         void DeleteOrder();

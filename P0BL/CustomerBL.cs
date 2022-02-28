@@ -57,6 +57,11 @@ namespace P0BL
             return _crepo.GetAllOrdersByCustomer(c_cusID);
         }
 
+        public List<Orders> GetAllOrdersByCustomerbyPrice(int c_cusID)
+        {
+            return _crepo.GetAllOrdersByCustomerbyPrice(c_cusID);
+        }
+
         public List<Orders> GetAllOrdersByStore(int s_storeID)
         {
             return _crepo.GetAllOrdersByStore(s_storeID);

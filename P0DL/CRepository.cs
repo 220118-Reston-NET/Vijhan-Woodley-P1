@@ -34,7 +34,7 @@ namespace P0DL
 
         public Orders AddOrder(Orders o_order)
         {
-            string SQLQuery = @"insert into Orders values(@fcustomer, @fstore, @totalPrice)";
+            string SQLQuery = @"insert into Orders values(@fcustomer, @fstore, @totalPrice, @datet)";
 
             using (SqlConnection con = new SqlConnection(_connectionStrings))
             {
@@ -44,6 +44,7 @@ namespace P0DL
                 command.Parameters.AddWithValue("@fcustomer", o_order.fcustomer);
                 command.Parameters.AddWithValue("@fstore", o_order.fstore);
                 command.Parameters.AddWithValue("@totalPrice", o_order.totalPrice);
+                command.Parameters.AddWithValue("@datet", o_order.datet);
 
                 command.ExecuteNonQuery();
             }
@@ -144,7 +145,7 @@ namespace P0DL
         {
             List<Orders> listOfOrders = new List<Orders>();
 
-            string SQLQuery = @"select OrderID, max(totalPrice), o.fstore, o.fcustomer from Orders o inner join SmoothieModel s on o.OrderID  = s.forder where s.fcustomer = @cusID group by s.forder, o.OrderID, o.fstore, o.fcustomer";
+            string SQLQuery = @"select OrderID, max(totalPrice), o.fstore, o.fcustomer, o.datet from Orders o inner join SmoothieModel s on o.OrderID  = s.forder where s.fcustomer = @cusID group by s.forder, o.OrderID, o.fstore, o.fcustomer, o.datet order by o.datet";
 
             using (SqlConnection con = new SqlConnection(_connectionStrings))
             {
@@ -162,7 +163,43 @@ namespace P0DL
                         OrderID = reader.GetInt32(0),
                         totalPrice = reader.GetDouble(1),
                         fstore = reader.GetInt32(2),
-                        fcustomer = reader.GetInt32(3)
+                        fcustomer = reader.GetInt32(3),
+                        datet = reader.GetDateTime(4),
+                        ListOfSmoothies = GetSmoothieByOrder(reader.GetInt32(0))
+                    });
+
+                }
+
+            }
+            
+            return listOfOrders;
+        }
+
+         public List<Orders> GetAllOrdersByCustomerbyPrice(int c_cusID)
+        {
+            List<Orders> listOfOrders = new List<Orders>();
+
+            string SQLQuery = @"select OrderID, max(totalPrice), o.fstore, o.fcustomer, o.datet from Orders o inner join SmoothieModel s on o.OrderID  = s.forder where s.fcustomer = @cusID group by s.forder, o.OrderID, o.fstore, o.fcustomer, o.datet order by max(totalPrice)";
+
+            using (SqlConnection con = new SqlConnection(_connectionStrings))
+            {
+
+                con.Open();
+
+                SqlCommand command = new SqlCommand(SQLQuery, con);
+
+                command.Parameters.AddWithValue("@cusID", c_cusID);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listOfOrders.Add(new Orders(){
+                        OrderID = reader.GetInt32(0),
+                        totalPrice = reader.GetDouble(1),
+                        fstore = reader.GetInt32(2),
+                        fcustomer = reader.GetInt32(3),
+                        datet = reader.GetDateTime(4),
+                        ListOfSmoothies = GetSmoothieByOrder(reader.GetInt32(0))
                     });
 
                 }
@@ -176,7 +213,7 @@ namespace P0DL
         {
             List<Orders> listOfOrders = new List<Orders>();
 
-            string SQLQuery = @"select OrderID, max(totalPrice) from Orders o inner join SmoothieModel s on o.OrderID  = s.forder where s.fstore = @storeID group by s.forder, o.OrderID";
+            string SQLQuery = @"select OrderID, max(totalPrice), o.fstore, o.fcustomer, o.datet from Orders o inner join SmoothieModel s on o.OrderID  = s.forder where s.fstore = @storeID group by s.forder, o.OrderID, o.fstore, o.fcustomer, o.datet";
 
             using (SqlConnection con = new SqlConnection(_connectionStrings))
             {
@@ -192,9 +229,11 @@ namespace P0DL
                 {
                     listOfOrders.Add(new Orders(){
                         OrderID = reader.GetInt32(0),
-                        //fcustomer = reader.GetInt32(1),
-                        //fstore = reader.GetInt32(2),
-                        totalPrice = reader.GetDouble(1)
+                        fcustomer = reader.GetInt32(3),
+                        fstore = reader.GetInt32(2),
+                        totalPrice = reader.GetDouble(1),
+                        datet = reader.GetDateTime(4),
+                        ListOfSmoothies = GetSmoothieByOrder(reader.GetInt32(0))
                     });
 
                 }
@@ -268,7 +307,7 @@ namespace P0DL
         {
             List<SmoothieModel> SmoothieList = new List<SmoothieModel>();
 
-            string SQLQuery = @"select s.SmoID, s.Name, s.ComboNumb, s.CupSize, s.Price from SmoothieModel s inner join Customer c on c.cusID = s.fcustomer where c.cusID = @cusID";
+            string SQLQuery = @"select s.SmoID, s.Name, s.ComboNumb, s.CupSize, s.Price, s.fcustomer, s.fstore, s.forder, s.Quantity from SmoothieModel s inner join Customer c on c.cusID = s.fcustomer where c.cusID = @cusID";
 
             using (SqlConnection con = new SqlConnection(_connectionStrings))
             {
@@ -286,7 +325,42 @@ namespace P0DL
                         Name = reader.GetString(1),
                         ComboNumb = reader.GetInt32(2),
                         CupSize = reader.GetString(3),
-                        Price = reader.GetDouble(4)
+                        Price = reader.GetDouble(4),
+                        fcustomer = reader.GetInt32(5),
+                        fstore = reader.GetInt32(6),
+                        forder = reader.GetInt32(7),
+                        Quantity = reader.GetInt32(8)
+
+                    });
+                }
+            }
+            return SmoothieList;
+        }
+
+        public List<SmoothieModel> GetSmoothieByOrder(int _orderID)
+        {
+            List<SmoothieModel> SmoothieList = new List<SmoothieModel>();
+
+            string SQLQuery = @"select s.SmoID, s.Name, s.ComboNumb, s.CupSize, s.Price, s.Quantity from SmoothieModel s inner join Orders o on o.OrderID  = s.forder where o.OrderID = @orderID";
+            
+            using (SqlConnection con = new SqlConnection(_connectionStrings))
+            {
+                con.Open();
+
+                SqlCommand command = new SqlCommand(SQLQuery, con);
+
+                command.Parameters.AddWithValue("@orderID", _orderID);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    SmoothieList.Add(new SmoothieModel(){
+                        SmoID = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        ComboNumb = reader.GetInt32(2),
+                        CupSize = reader.GetString(3),
+                        Price = reader.GetDouble(4),
+                        Quantity = reader.GetInt32(5)
                     });
                 }
             }
@@ -297,7 +371,7 @@ namespace P0DL
         {
             List<SmoothieModel> SmoothieList = new List<SmoothieModel>();
 
-            string SQLQuery = @"select s.SmoID, s.Name, s.ComboNumb, s.CupSize, s.Price from SmoothieModel s inner join Store st on st.StoreID = s.fstore where st.StoreID = @StoreID";
+            string SQLQuery = @"select s.SmoID, s.Name, s.ComboNumb, s.CupSize, s.Price, s.Quantity from SmoothieModel s inner join Store st on st.StoreID = s.fstore where st.StoreID = @StoreID";
 
             using (SqlConnection con = new SqlConnection(_connectionStrings))
             {
@@ -315,7 +389,8 @@ namespace P0DL
                         Name = reader.GetString(1),
                         ComboNumb = reader.GetInt32(2),
                         CupSize = reader.GetString(3),
-                        Price = reader.GetDouble(4)
+                        Price = reader.GetDouble(4),
+                        Quantity = reader.GetInt32(5)
                     });
                 }
             }

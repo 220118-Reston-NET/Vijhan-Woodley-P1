@@ -39,12 +39,11 @@ namespace P0Model
             };
         }
 
-        public void AddSmoothie(SmoothieModel _smoothie, int howmanysmoothies)
+        public void AddSmoothie(SmoothieModel _smoothie)
         {
-            for (int i = 0; i < howmanysmoothies; i++)
-            {
+            
             _listOfSmoothie.Add(_smoothie);
-            }
+            
         }
 
          public void AddOrder(Orders _orders)

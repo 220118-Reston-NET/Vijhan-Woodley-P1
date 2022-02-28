@@ -48,12 +48,11 @@ namespace P0Model{
 
         }
 
-         public void AddSmoothie(SmoothieModel _smoothie, int howmanysmoothies)
+         public void AddSmoothie(SmoothieModel _smoothie)
         {
-            for (int i = 0; i < howmanysmoothies; i++)
-            {
+        
             _smoothies.Add(_smoothie);
-            }
+            
         }
 
         public override string ToString()

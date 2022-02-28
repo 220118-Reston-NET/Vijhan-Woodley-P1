@@ -59,6 +59,7 @@ namespace P0UI
                    }
                    
                    Console.WriteLine("Order ID: " + order.OrderID + "  Total Price: $" + order.totalPrice + " Store Name: " + store);
+                   Console.WriteLine("Date and Time: " + order.datet);
                    Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++");
                    List<SmoothieModel> SmoothieList = _cusBL.GetOrderByCustomer(order.OrderID);
                    foreach (SmoothieModel item in SmoothieList)

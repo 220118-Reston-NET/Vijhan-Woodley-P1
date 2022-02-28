@@ -695,3 +695,104 @@ Price : $6.5
 2022-02-20 20:29:21.754 -08:00 [INF] Manager logged in, displaying ManagerMenu
 2022-02-20 20:29:23.424 -08:00 [INF] Displaying MainMenu to user
 2022-02-20 20:29:25.732 -08:00 [INF] Exiting Application
+2022-02-24 12:06:56.297 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 12:07:01.491 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 12:09:14.385 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 12:09:16.860 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 12:10:02.589 -08:00 [INF] Saving smoothie 
+Name : CoconutFusion
+Cup size : small
+Price : $5
+2022-02-24 12:10:02.720 -08:00 [INF] Successful at saving smoothie.
+2022-02-24 12:10:06.315 -08:00 [INF] Saving order at bronx location 
+Name : CoconutFusion
+Cup size : small
+Price : $5
+2022-02-24 12:10:06.315 -08:00 [INF] Successful at saving Order.
+2022-02-24 12:10:08.164 -08:00 [INF] Displaying MainMenu to user
+2022-02-24 14:45:53.597 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 14:45:56.091 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 14:49:13.183 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 14:49:21.722 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 14:49:25.268 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 14:52:58.516 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 14:53:02.628 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 14:55:42.384 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 14:55:48.083 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 14:55:49.978 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 14:57:36.003 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 14:57:37.650 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 14:59:36.946 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 14:59:38.619 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:02:23.497 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 15:02:26.460 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:05:41.038 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 15:05:44.730 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:07:23.359 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:07:47.681 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 15:07:57.471 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:09:45.822 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:09:52.426 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 15:09:55.033 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:13:28.261 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 15:13:31.080 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:15:02.972 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:15:10.184 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 15:15:12.409 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:16:23.099 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:16:27.616 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:16:50.489 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 15:16:52.365 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:17:14.795 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:43:08.406 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 15:43:10.008 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 15:47:57.305 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 16:02:59.054 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 16:03:05.676 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 16:07:30.743 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 16:07:33.845 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 16:07:54.755 -08:00 [INF] Saving smoothie 
+Name : CoconutFusion
+Cup size : small
+Price : $5
+2022-02-24 16:07:54.862 -08:00 [INF] Successful at saving smoothie.
+2022-02-24 16:08:19.470 -08:00 [INF] Saving smoothie 
+Name : VeryBerry
+Cup size : small
+Price : $10
+2022-02-24 16:08:19.539 -08:00 [INF] Successful at saving smoothie.
+2022-02-24 16:08:21.188 -08:00 [INF] Saving order at bronx location 
+Name : VeryBerry
+Cup size : small
+Price : $10
+2022-02-24 16:08:21.189 -08:00 [INF] Successful at saving Order.
+2022-02-24 16:08:52.591 -08:00 [INF] Displaying MainMenu to user
+2022-02-24 16:08:55.148 -08:00 [INF] Exiting Application
+2022-02-24 17:10:44.502 -08:00 [INF] Displaying CustomerMenu.
+2022-02-24 17:10:51.074 -08:00 [INF] Displaying AddSmoothie Menu to the user
+2022-02-24 17:11:17.480 -08:00 [INF] Saving smoothie 
+Name : CoconutFusion
+Cup size : small
+Price : $10
+2022-02-24 17:11:17.553 -08:00 [INF] Successful at saving smoothie.
+2022-02-24 17:11:33.812 -08:00 [INF] Saving smoothie 
+Name : VeryBerry
+Cup size : large
+Price : $7
+2022-02-24 17:11:33.888 -08:00 [INF] Successful at saving smoothie.
+2022-02-24 17:11:35.292 -08:00 [INF] Saving order at bronx location 
+Name : VeryBerry
+Cup size : large
+Price : $7
+2022-02-24 17:11:35.293 -08:00 [INF] Successful at saving Order.
+2022-02-24 17:11:43.008 -08:00 [INF] Displaying MainMenu to user
+2022-02-24 17:11:44.077 -08:00 [INF] Exiting Application
+2022-02-24 17:16:16.094 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-24 17:16:25.674 -08:00 [INF] Displaying order history menu to the user
+2022-02-24 17:18:07.189 -08:00 [INF] Displaying order history menu to the user
+2022-02-24 17:19:38.472 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-24 17:20:02.661 -08:00 [INF] Displaying order history menu to the user
+2022-02-24 17:21:12.254 -08:00 [INF] Displaying order history menu to the user
+2022-02-24 17:21:16.218 -08:00 [INF] Manager logged in, displaying ManagerMenu
+2022-02-24 17:21:17.529 -08:00 [INF] Displaying MainMenu to user
+2022-02-24 17:21:45.344 -08:00 [INF] Exiting Application

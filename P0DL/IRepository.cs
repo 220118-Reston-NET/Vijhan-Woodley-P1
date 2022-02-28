@@ -14,7 +14,7 @@ List<SmoothieModel> GetAllSmoothie();
 
 List<Product> GetAllProduct();
 
-void AddInventory(int _proID);
+void AddInventory(int _proID, int quantity);
 
-void SubtractInventory(int _proID);
+void SubtractInventory(int _proID, int quantity);
 }

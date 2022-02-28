@@ -72,6 +72,41 @@ namespace P0Test
 
         }
 
+        [Fact]
+        public void should_get_all_orders_by_customer()
+        {
+            //Arrange
+            int Id = 49;
+            double totalPrice1 = 17;
+            int stonenum = 1;
+            int cusID = 6;
+
+            Orders order = new Orders()
+            {
+                OrderID = Id,
+                totalPrice = totalPrice1,
+                fstore = stonenum
+            };
+
+            List<Orders> expectedList = new List<Orders>();
+            expectedList.Add(order);
+
+            Mock<ICRepository> mockRepo = new Mock<ICRepository>();
+
+            mockRepo.Setup(repo => repo.GetAllOrdersByCustomer(cusID)).Returns(expectedList);
+
+            ICustomerBL cusBL = new CustomerBL(mockRepo.Object);
+
+            //Act
+            List<Orders> actualList = cusBL.GetAllOrdersByCustomer(cusID);
+
+            //Assert
+            Assert.Same(expectedList, actualList);
+            Assert.Equal(expectedList[0].OrderID, actualList[0].OrderID);
+            Assert.Equal(expectedList[0].totalPrice, actualList[0].totalPrice);
+            Assert.Equal(expectedList[0].fstore, actualList[0].fstore);
+        }
+
 
     }
 }

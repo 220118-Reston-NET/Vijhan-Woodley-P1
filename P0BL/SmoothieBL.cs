@@ -11,30 +11,34 @@ public SmoothieBL(IRepository p_repo)
     _repo = p_repo;
 }
 
-        public void AddInventory(int _proID)
+        public void AddInventory(int _proID, int quantity)
         {
-            _repo.AddInventory(_proID);
+            _repo.AddInventory(_proID, quantity);
         }
 
-        public void AddSmoothie(SmoothieModel _smoothie, int productID, int _howmuchsmoothies)
+        public SmoothieModel AddSmoothie(SmoothieModel _smoothie, int productID)
         {
             List<Product> ProductList = _repo.GetAllProduct();
            
             int quantity = ProductList[productID - 1].Quantity;
             
            // List<SmoothieModel> listOfSmoothies = _repo.GetAllSmoothie();
-           for (int i = 0; i < _howmuchsmoothies; i++)
-           {
-               if (quantity < 1)
+           
+               if (quantity < _smoothie.Quantity)
             {
                 throw new Exception("No more inventory. Cannot order smoothie.");
             } else
             {
-                 _repo.AddSmoothie(_smoothie);
+                return _repo.AddSmoothie(_smoothie);
             }
-           }
+           
             
             
+        }
+
+        public List<Product> GetAllProduct()
+        {
+            return _repo.GetAllProduct();
         }
 
         public List<SmoothieModel> SearchSmoothie(string s_name)
@@ -56,9 +60,9 @@ public SmoothieBL(IRepository p_repo)
             return SmoothieFound;
         }
 
-        public void SubtractInventory(int _proID)
+        public void SubtractInventory(int _proID, int quantity)
         {
-            _repo.SubtractInventory(_proID);
+            _repo.SubtractInventory(_proID, quantity);
         }
 
         public void ViewInventory(int _proID)

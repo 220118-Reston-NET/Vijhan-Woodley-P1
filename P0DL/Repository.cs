@@ -16,9 +16,9 @@ namespace P0DL {
             _connectionStrings = c_connectionStrings;
         }
 
-        public void AddInventory(int _proID)
+        public void AddInventory(int _proID, int quantity)
         {
-           string SQLQuery = @"update Product set Quantity = Quantity + 10 where proID = @proID";
+           string SQLQuery = @"update Product set Quantity = Quantity + @quantity where proID = @proID";
 
            using(SqlConnection con = new SqlConnection(_connectionStrings))
            {
@@ -26,6 +26,7 @@ namespace P0DL {
 
                SqlCommand command = new SqlCommand(SQLQuery, con);
                command.Parameters.AddWithValue("@proID", _proID);
+               command.Parameters.AddWithValue("@quantity", quantity);
 
                command.ExecuteNonQuery();
            }  
@@ -33,7 +34,7 @@ namespace P0DL {
 
         public SmoothieModel AddSmoothie(SmoothieModel _smoothie)
         {
-            string SQLQuery = @"insert into SmoothieModel values(@Name, @ComboNumb, @CupSize, @Price, @fcustomer, @fstore, @forder)";
+            string SQLQuery = @"insert into SmoothieModel values(@Name, @ComboNumb, @CupSize, @Price, @fcustomer, @fstore, @forder, @Quantity)";
 
             using(SqlConnection con = new SqlConnection(_connectionStrings))
             {
@@ -47,6 +48,7 @@ namespace P0DL {
                 command.Parameters.AddWithValue("@fcustomer", _smoothie.fcustomer);
                 command.Parameters.AddWithValue("@fstore", _smoothie.fstore);
                 command.Parameters.AddWithValue("@forder", _smoothie.forder);
+                command.Parameters.AddWithValue("@Quantity", _smoothie.Quantity);
 
                 command.ExecuteNonQuery();
             }
@@ -113,7 +115,8 @@ namespace P0DL {
                         Price = reader.GetDouble(4),
                         fcustomer = reader.GetInt32(5),
                         fstore = reader.GetInt32(6),
-                        forder = reader.GetInt32(7)
+                        forder = reader.GetInt32(7),
+                        Quantity = reader.GetInt32(8)
                     });
                 }
             }
@@ -124,9 +127,9 @@ namespace P0DL {
             return JsonSerializer.Deserialize<List<SmoothieModel>>(_jsonString);*/
         }
 
-        public void SubtractInventory(int _proID)
+        public void SubtractInventory(int _proID, int quantity)
         {
-            string SQLQuery = @"update Product set Quantity = Quantity - 1 where proID = @proID";
+            string SQLQuery = @"update Product set Quantity = Quantity - @quantity where proID = @proID";
 
            using(SqlConnection con = new SqlConnection(_connectionStrings))
            {
@@ -134,6 +137,7 @@ namespace P0DL {
 
                SqlCommand command = new SqlCommand(SQLQuery, con);
                command.Parameters.AddWithValue("@proID", _proID);
+               command.Parameters.AddWithValue("@quantity", quantity);
 
                command.ExecuteNonQuery();
            } 

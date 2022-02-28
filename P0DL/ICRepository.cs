@@ -16,6 +16,10 @@ namespace P0DL
 
         void DeleteOrder();
 
+        List<SmoothieModel> GetSmoothieByOrder(int _orderID);
+
+        List<Orders> GetAllOrdersByCustomerbyPrice(int c_cusID);
+
         List<SmoothieModel> GetSmoothieByCustomer(int c_cusID);
 
         List<SmoothieModel> GetOrderByCustomer(int o_orderID);

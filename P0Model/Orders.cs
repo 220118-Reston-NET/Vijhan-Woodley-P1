@@ -16,23 +16,21 @@ namespace P0Model
         
 
         public double totalPrice { get; set; }
+
+        public DateTime datet { get; set; }
         
 
         public Orders()
         {
             
-           _listOfSmoothies = new List<SmoothieModel>()
-            {
-                new SmoothieModel()
-            }; 
+           _listOfSmoothies = new List<SmoothieModel>();
         }
 
-         public void AddSmoothie(SmoothieModel _smoothie, int howmanysmoothies)
+         public void AddSmoothie(SmoothieModel _smoothie)
         {
-            for (int i = 0; i < howmanysmoothies; i++)
-            {
+            
                 _listOfSmoothies.Add(_smoothie);
-            }
+            
             
             
         }
