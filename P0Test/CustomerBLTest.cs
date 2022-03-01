@@ -213,6 +213,115 @@ namespace P0Test
 
         }
 
+        [Fact]
+        public void should_get_smoothie_by_store()
+        {
+            int Id = 47;
+            string name = "CoconutFusion";
+            int combonum = 1;
+            int storeid = 1;
+
+            SmoothieModel smo = new SmoothieModel()
+            {
+                SmoID = Id,
+                Name = name,
+                ComboNumb = combonum
+
+            };
+
+            List<SmoothieModel> expectedList = new List<SmoothieModel>();
+            expectedList.Add(smo);
+
+            Mock<ICRepository> mockRepo = new Mock<ICRepository>();
+
+            mockRepo.Setup(repo => repo.GetSmoothieByStore(storeid)).Returns(expectedList);
+
+            ICustomerBL cusBL = new CustomerBL(mockRepo.Object);
+
+            //Act
+            List<SmoothieModel> actualList = cusBL.GetSmoothieByStore(storeid);
+
+            //Assert
+            Assert.Same(expectedList, actualList);
+            Assert.Equal(expectedList[0].SmoID, actualList[0].SmoID);
+            Assert.Equal(expectedList[0].Name, actualList[0].Name);
+            Assert.Equal(expectedList[0].ComboNumb, actualList[0].ComboNumb);
+
+        }
+
+        [Fact]
+        public void should_search_customer()
+        {
+            string name = "jada";
+            int id = 6;
+            string emaIl = "jada@gmail.com";
+            int age = 20;
+
+            Customer cus = new Customer()
+            {
+                cusID = id,
+                Name = name,
+                Email = emaIl,
+                Age = age
+            };
+
+            List<Customer> expectedList = new List<Customer>();
+            expectedList.Add(cus);
+
+            Mock<ICRepository> mockRepo = new Mock<ICRepository>();
+
+            mockRepo.Setup(repo => repo.GetAllCustomers()).Returns(expectedList);
+
+            ICustomerBL cusBL = new CustomerBL(mockRepo.Object);
+
+            //Act
+            List<Customer> actualList = cusBL.SearchCustomer(name);
+
+            //Assert
+            Assert.Equal(expectedList, actualList);
+            Assert.Equal(expectedList[0].cusID, actualList[0].cusID);
+            Assert.Equal(expectedList[0].Name, actualList[0].Name);
+            Assert.Equal(expectedList[0].Email, actualList[0].Email);
+        }
+
+        [Fact]
+        public void should_search_specific_customer()
+        {
+            string name = "jada";
+            int id = 6;
+            string emaIl = "jada@gmail.com";
+            int age = 20;
+
+            Customer cus = new Customer()
+            {
+                cusID = id,
+                Name = name,
+                Email = emaIl,
+                Age = age
+            };
+
+            List<Customer> expectedList = new List<Customer>();
+            expectedList.Add(cus);
+
+            Mock<ICRepository> mockRepo = new Mock<ICRepository>();
+
+            mockRepo.Setup(repo => repo.GetAllCustomers()).Returns(expectedList);
+
+            ICustomerBL cusBL = new CustomerBL(mockRepo.Object);
+
+            //Act
+            Customer actualcus = cusBL.SearchSpecificCustomer(emaIl);
+
+            //Assert
+            Assert.Equal(expectedList[0].cusID, actualcus.cusID);
+            Assert.Equal(expectedList[0].Name, actualcus.Name);
+            Assert.Equal(expectedList[0].Email, actualcus.Email);
+            Assert.Equal(expectedList[0].Age, actualcus.Age);
+        }
+
+        
+
+        
 
     }
 }
