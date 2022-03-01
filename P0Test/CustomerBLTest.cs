@@ -319,7 +319,53 @@ namespace P0Test
             Assert.Equal(expectedList[0].Age, actualcus.Age);
         }
 
-        
+        [Fact]
+        public void should_add_smoothie()
+        {
+            int proid = 1;
+            string storeNamee = "SmoothieShackBronx";
+            int quantity = 10;
+
+            string name = "CoconutFusion";
+            int combonum = 1;
+            string cupsize = "small";
+            int quantity1 = 1; 
+
+            Product pro = new Product()
+            {
+                proID = proid,
+                storeName = storeNamee,
+                Quantity = quantity
+
+            };
+
+            SmoothieModel smo = new SmoothieModel()
+            {
+                Name = name,
+                ComboNumb = combonum,
+                CupSize = cupsize,
+                Quantity = quantity1
+            };
+
+            List<Product> expectedList = new List<Product>();
+            expectedList.Add(pro);
+
+            Mock<IRepository> mockRepo = new Mock<IRepository>();
+
+            mockRepo.Setup(repo => repo.GetAllProduct()).Returns(expectedList);
+            mockRepo.Setup(repo => repo.AddSmoothie(smo)).Returns(smo);
+
+            ISmoothieBL cusBL = new SmoothieBL(mockRepo.Object);
+
+            //Act
+            SmoothieModel actualsmo = cusBL.AddSmoothie(smo, proid);
+
+            //Assert
+            Assert.Equal(smo.Name, actualsmo.Name);
+            Assert.Equal(smo.ComboNumb, actualsmo.ComboNumb);
+            Assert.Equal(smo.CupSize, actualsmo.CupSize);
+            Assert.Equal(smo.Quantity, actualsmo.Quantity);
+        }
 
         
 
