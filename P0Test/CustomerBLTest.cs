@@ -367,6 +367,83 @@ namespace P0Test
             Assert.Equal(smo.Quantity, actualsmo.Quantity);
         }
 
+        [Fact]
+        public void should_search_for_smoothie()
+        {
+            int Id = 47;
+            string name = "CoconutFusion";
+            int combonum = 1;
+            
+
+
+            SmoothieModel smo = new SmoothieModel()
+            {
+                SmoID = Id,
+                Name = name,
+                ComboNumb = combonum
+
+            };
+
+            List<SmoothieModel> expectedList = new List<SmoothieModel>();
+            expectedList.Add(smo);
+            
+            Mock<IRepository> mockRepo = new Mock<IRepository>();
+
+            mockRepo.Setup(repo => repo.GetAllSmoothie()).Returns(expectedList);
+
+            ISmoothieBL cusBL = new SmoothieBL(mockRepo.Object);
+
+            //Act
+            List<SmoothieModel> actualList = cusBL.SearchSmoothie(name);
+
+            //Assert
+            Assert.Equal(expectedList, actualList);
+            Assert.Equal(expectedList[0].SmoID, actualList[0].SmoID);
+            Assert.Equal(expectedList[0].Name, actualList[0].Name);
+            Assert.Equal(expectedList[0].ComboNumb, actualList[0].ComboNumb);
+
+        }
+
+        [Fact]
+        public void should_get_all_product()
+        {
+            //Arrange
+            int proid = 1;
+            double pricee = 5;
+            string cupsizee = "anysize";
+            string storenamee = "SmoothieShackBronx";
+            int quantity = 1;
+
+            Product pro = new Product()
+            {
+                proID = proid,
+                Price = pricee,
+                CupSize = cupsizee,
+                storeName = storenamee,
+                Quantity = quantity
+            };
+
+            List<Product> ExpectedCustList = new List<Product>();
+            ExpectedCustList.Add(pro);
+
+            Mock<IRepository> mockRepo = new Mock<IRepository>();
+
+            mockRepo.Setup(repo => repo.GetAllProduct()).Returns(ExpectedCustList);
+
+            ISmoothieBL cusBL = new SmoothieBL(mockRepo.Object);
+
+            //Act
+            List<Product> actualCustList = cusBL.GetAllProduct();
+
+            //Assert
+            Assert.Same(ExpectedCustList, actualCustList);
+            Assert.Equal(ExpectedCustList[0].proID, actualCustList[0].proID);
+            Assert.Equal(ExpectedCustList[0].Price, actualCustList[0].Price);
+            Assert.Equal(ExpectedCustList[0].CupSize, actualCustList[0].CupSize);
+            Assert.Equal(ExpectedCustList[0].storeName, actualCustList[0].storeName);
+            Assert.Equal(ExpectedCustList[0].Quantity, actualCustList[0].Quantity);
+
+        }
         
 
     }
