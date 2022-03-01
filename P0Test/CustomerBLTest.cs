@@ -557,21 +557,50 @@ namespace P0Test
 
         }
 
-        /*[Fact]
+        [Fact]
         public void should_substract_inventory()
         {
             int id = 1;
             int quantity = 1;
+
+            int proid = 1;
+            double pricee = 5;
+            string cupsizee = "anysize";
+            string storenamee = "SmoothieShackBronx";
+            int quantity1 = 0;
+            
+
+            Product pro = new Product()
+            {
+                proID = proid,
+                Price = pricee,
+                CupSize = cupsizee,
+                storeName = storenamee,
+                Quantity = quantity1
+            };
+
+            List<Product> ExpectedCustList = new List<Product>();
+            ExpectedCustList.Add(pro);
            
             Mock<IRepository> mockRepo = new Mock<IRepository>();
+
             
             mockRepo.Setup(repo => repo.SubtractInventory(id, quantity));
+            mockRepo.Setup(repo => repo.GetAllProduct()).Returns(ExpectedCustList);
 
             ISmoothieBL cusBL = new SmoothieBL(mockRepo.Object);
 
             //Act
-            Assert.Null(cusBL.SubtractInventory(id, quantity));
-        }*/
+           cusBL.SubtractInventory(id, quantity);
+           List<Product> list = cusBL.GetAllProduct();
+
+           //Assert
+            Assert.Equal(list[0].proID, pro.proID);
+            Assert.Equal(list[0].Price, pro.Price);
+            Assert.Equal(list[0].CupSize, pro.CupSize);
+            Assert.Equal(list[0].storeName, pro.storeName);
+            Assert.Equal(list[0].Quantity, pro.Quantity);
+        }
         
 
     }

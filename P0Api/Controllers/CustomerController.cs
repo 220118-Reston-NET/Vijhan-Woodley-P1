@@ -29,7 +29,10 @@ namespace P0Api.Controllers
             _smoBL = s_smoBL;
         }
         // GET: api/P0
-
+        /// <summary>
+        /// Gets all customers from the sqldatatbase
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("GetAllCustomer")]
         public IActionResult GetAllCustomers()
         {
