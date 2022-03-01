@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Moq;
 using P0DL;
 using P0BL;
+using System;
 
 namespace P0Test 
 {
@@ -175,6 +176,37 @@ namespace P0Test
             Assert.Equal(expectedList[0].OrderID, actualList[0].OrderID);
             Assert.Equal(expectedList[0].totalPrice, actualList[0].totalPrice);
             Assert.Equal(expectedList[0].fstore, actualList[0].fstore);
+        }
+
+        [Fact]
+        public void should_get_all_order_by_price()
+        {
+            int Id = 49;
+            double totalPrice1 = 17;
+            int stonenum = 1;
+
+            Orders order = new Orders()
+            {
+                OrderID = Id,
+                totalPrice = totalPrice1,
+                fstore = stonenum
+            };
+
+
+            Mock<ICRepository> mockRepo = new Mock<ICRepository>();
+
+            mockRepo.Setup(repo => repo.GetOrderbyPrice()).Returns(order);
+
+            ICustomerBL cusBL = new CustomerBL(mockRepo.Object);
+
+            //Act
+            Orders actualorder = cusBL.GetOrderbyPrice();
+
+            //Assert
+            Assert.Same(order, actualorder);
+            Assert.Equal(order.OrderID, actualorder.OrderID);
+            Assert.Equal(order.totalPrice, actualorder.totalPrice);
+            Assert.Equal(order.fstore, actualorder.fstore);
         }
 
         [Fact]
@@ -368,6 +400,85 @@ namespace P0Test
         }
 
         [Fact]
+        public void should_add_order()
+        {
+            int cusid = 6;
+            int storeid = 1;
+            double price = 5;
+            DateTime date = DateTime.Now;
+            Orders or = new Orders()
+            {
+                fcustomer = cusid,
+                fstore = storeid,
+                totalPrice = price,
+                datet = date
+            };
+
+            Mock<ICRepository> mockRepo = new Mock<ICRepository>();
+
+            mockRepo.Setup(repo => repo.AddOrder(or)).Returns(or);
+
+            ICustomerBL cusBL = new CustomerBL(mockRepo.Object);
+
+            //Act
+            Orders actualor = cusBL.AddOrder(or);
+
+            //Assert
+            Assert.Equal(or.fcustomer, actualor.fcustomer);
+            Assert.Equal(or.fstore, actualor.fstore);
+            Assert.Equal(or.totalPrice, actualor.totalPrice);
+            Assert.Equal(or.datet, actualor.datet);
+        }
+
+        [Fact]
+        public void should_add_Customer()
+        {
+            string name = "jada";
+            int id = 6;
+            string emaIl = "jada@gmail.com";
+            int age = 20;
+
+            string name1 = "poppy";
+            int id1 = 8;
+            string emaIl1 = "poppy@gmail.com";
+            int age1 = 20;
+            Customer cus = new Customer()
+            {
+                cusID = id,
+                Name = name,
+                Email = emaIl,
+                Age = age
+            };
+
+            Customer cus1 = new Customer()
+            {
+                cusID = id1,
+                Name = name1,
+                Email = emaIl1,
+                Age = age1
+            };
+
+            List<Customer> expectedList = new List<Customer>();
+            expectedList.Add(cus);
+
+            Mock<ICRepository> mockRepo = new Mock<ICRepository>();
+
+            mockRepo.Setup(repo => repo.GetAllCustomers()).Returns(expectedList);
+            mockRepo.Setup(repo => repo.AddCustomer(cus1)).Returns(cus1);
+
+            ICustomerBL cusBL = new CustomerBL(mockRepo.Object);
+
+            //Act
+            Customer actualsmo = cusBL.AddCustomer(cus1);
+
+            //Assert
+            Assert.Equal(cus1.Name, actualsmo.Name);
+            Assert.Equal(cus1.Email, actualsmo.Email);
+            Assert.Equal(cus1.Age, actualsmo.Age);
+            Assert.Equal(cus1.cusID, actualsmo.cusID);
+        }
+
+        [Fact]
         public void should_search_for_smoothie()
         {
             int Id = 47;
@@ -442,8 +553,25 @@ namespace P0Test
             Assert.Equal(ExpectedCustList[0].CupSize, actualCustList[0].CupSize);
             Assert.Equal(ExpectedCustList[0].storeName, actualCustList[0].storeName);
             Assert.Equal(ExpectedCustList[0].Quantity, actualCustList[0].Quantity);
+            
 
         }
+
+        /*[Fact]
+        public void should_substract_inventory()
+        {
+            int id = 1;
+            int quantity = 1;
+           
+            Mock<IRepository> mockRepo = new Mock<IRepository>();
+            
+            mockRepo.Setup(repo => repo.SubtractInventory(id, quantity));
+
+            ISmoothieBL cusBL = new SmoothieBL(mockRepo.Object);
+
+            //Act
+            Assert.Null(cusBL.SubtractInventory(id, quantity));
+        }*/
         
 
     }
