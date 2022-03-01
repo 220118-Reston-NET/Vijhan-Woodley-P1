@@ -25,7 +25,7 @@ namespace P0BL
 
         List<Orders> GetAllOrdersByStore(int s_storeID);
 
-        void DeleteOrder();
+        void DeleteOrder(int orderID);
 
         void AlterOrderPrice(int _orderID, double _totalPrice);
 

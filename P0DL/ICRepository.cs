@@ -14,7 +14,7 @@ namespace P0DL
 
         void AlterOrderPrice(int _orderID, double _totalPrice);
 
-        void DeleteOrder();
+        void DeleteOrder(int orderID);
 
         List<SmoothieModel> GetSmoothieByOrder(int _orderID);
 

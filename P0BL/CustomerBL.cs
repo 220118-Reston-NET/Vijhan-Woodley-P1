@@ -37,9 +37,9 @@ namespace P0BL
            _crepo.AlterOrderPrice(_orderID, _totalPrice);
         }
 
-        public void DeleteOrder()
+        public void DeleteOrder(int orderID)
         {
-            _crepo.DeleteOrder();
+            _crepo.DeleteOrder(orderID);
         }
 
         public List<Customer> GetAllCustomers()

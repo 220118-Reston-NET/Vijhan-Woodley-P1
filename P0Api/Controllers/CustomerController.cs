@@ -13,7 +13,8 @@ namespace P0Api.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private Customer _customer = new Customer();
+        static List<SmoothieModel> tempSmoList = new List<SmoothieModel>();
+        private static Customer _customer = new Customer();
         Store _storeBronx = new Store("SmoothieShackBronx");
         Store _storeMan = new Store("SmoothieShackMan");
         private static SmoothieModel _newSmoothie;
@@ -28,11 +29,13 @@ namespace P0Api.Controllers
             _smoBL = s_smoBL;
         }
         // GET: api/P0
+
         [HttpGet("GetAllCustomer")]
         public IActionResult GetAllCustomers()
         {
             try
             {
+                
                 return Ok(_cusBL.GetAllCustomers());
             }
             catch (System.Exception)
@@ -65,12 +68,158 @@ namespace P0Api.Controllers
         {
             try
             {
+                
                 return Ok(_cusBL.AddCustomer(c_customer));
             }
             catch (System.Exception)
             {
                 
                 return Conflict();
+            }
+        }
+
+        [HttpPost("AddSmoothieToCart{email}/{password}/{combonumber}/{quantity}/{Cupsize}")]
+        public IActionResult AddSmoothieToCart(string email, string password, int combonumber, int quantity, string Cupsize)
+        {
+            try
+            {
+                _customer = _cusBL.SearchSpecificCustomer(email);
+            }
+            catch (System.Exception)
+            {
+                
+                return NotFound("Customer not found.");
+            }
+
+            if(password == _customer.passwordd)
+            {
+                _newSmoothie = new SmoothieModel(combonumber, Cupsize, quantity);
+                tempSmoList.Add(_newSmoothie);
+                return Ok(tempSmoList);
+            }else
+           {
+               return NotFound("Password incorrect");
+           }
+        }
+
+        [HttpGet("ViewCart")]
+        public IActionResult ViewCart()
+        {
+            return Ok(tempSmoList);
+        }
+
+        [HttpPost("SaveOrder{StoreId}")]
+        public IActionResult SaveOrder(int StoreId)
+        {
+            switch (StoreId)
+            {
+                case 1:
+                _storeBronx.Address = "Bronx, NY";
+
+                _storeBronx.StoreID = 1;
+                _storeBronx.Name = "SmoothieShackBronx";
+
+                _order.fcustomer = _customer.cusID;
+                _order.fstore = 1;
+                _order.totalPrice = 0;
+                _order.datet = DateTime.Now;
+                _cusBL.AddOrder(_order);
+                _order = _cusBL.GetOrderbyPrice();
+
+                foreach (SmoothieModel item in tempSmoList)
+                {
+                item.fcustomer = _customer.cusID;
+                item.fstore = _storeBronx.StoreID;
+                item.forder = _order.OrderID;
+                 _customer.AddSmoothie(item);
+                _storeBronx.AddSmoothie(item);
+                _order.AddSmoothie(item);
+
+                try
+                {
+                    
+                     _smoBL.AddSmoothie(item, 1);
+                }
+                catch (System.Exception exe)
+                {
+                    _cusBL.DeleteOrder(_order.OrderID);
+                    return Conflict(exe.Message);
+                }
+
+                _smoBL.SubtractInventory(1, item.Quantity); 
+                
+                
+                }
+                _storeBronx.AddOrder(_order);
+                foreach (SmoothieModel item in _order.ListOfSmoothies)
+                        {
+                            if (item.Price > 0)
+                            {
+                                Console.WriteLine(item);
+                                Console.WriteLine("-------------------");
+                            }
+                            _order.totalPrice += item.Price;
+                        }
+                _cusBL.AlterOrderPrice(_order.OrderID, _order.totalPrice);
+                tempSmoList.Clear();
+                return Ok(_order);
+
+                case 2:
+                _storeBronx.Address = "Manhatten, NY";
+
+                _storeBronx.StoreID = 2;
+                _storeBronx.Name = "SmoothieShackMan";
+
+                _order.fcustomer = _customer.cusID;
+                _order.fstore = 2;
+                _order.totalPrice = 0;
+                _order.datet = DateTime.Now;
+                _cusBL.AddOrder(_order);
+                _order = _cusBL.GetOrderbyPrice();
+
+                foreach (SmoothieModel item in tempSmoList)
+                {
+                item.fcustomer = _customer.cusID;
+                item.fstore = _storeBronx.StoreID;
+                item.forder = _order.OrderID;
+                 _customer.AddSmoothie(item);
+                _storeBronx.AddSmoothie(item);
+                _order.AddSmoothie(item);
+                
+                
+                try
+                {
+                    
+                     _smoBL.AddSmoothie(item, 2);
+                }
+                catch (System.Exception exe)
+                {
+                    _cusBL.DeleteOrder(_order.OrderID);
+                    return Conflict(exe.Message);
+                }
+
+                _smoBL.SubtractInventory(2, item.Quantity); 
+                
+                
+                }
+                _storeBronx.AddOrder(_order);
+                foreach (SmoothieModel item in _order.ListOfSmoothies)
+                        {
+                            if (item.Price > 0)
+                            {
+                                Console.WriteLine(item);
+                                Console.WriteLine("-------------------");
+                            }
+                            _order.totalPrice += item.Price;
+                        }
+                _cusBL.AlterOrderPrice(_order.OrderID, _order.totalPrice);
+
+                tempSmoList.Clear();
+                return Ok(_order);
+
+                default:
+                return Conflict();
+                
             }
         }
 
@@ -92,7 +241,7 @@ namespace P0Api.Controllers
                switch (StoreId)
                {
                    case 1:
-                    _storeBronx.Address = "Bronx, NY";
+                _storeBronx.Address = "Bronx, NY";
 
                 _storeBronx.StoreID = 1;
                 _storeBronx.Name = "SmoothieShackBronx";
@@ -119,7 +268,7 @@ namespace P0Api.Controllers
                 }
                 catch (System.Exception exe)
                 {
-                    _cusBL.DeleteOrder();
+                    _cusBL.DeleteOrder(_order.OrderID);
                     return Conflict(exe.Message);
                 }
                
@@ -162,7 +311,7 @@ namespace P0Api.Controllers
                 }
                 catch (System.Exception exe)
                 {
-                    _cusBL.DeleteOrder();
+                    _cusBL.DeleteOrder(_order.OrderID);
                     return Conflict(exe.Message);
                 }
                

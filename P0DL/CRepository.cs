@@ -66,16 +66,16 @@ namespace P0DL
              }
         }
 
-        public void DeleteOrder()
+        public void DeleteOrder(int orderID)
         {
-            string SQLQuery = @"delete from Orders where totalPrice = 0;";
+            string SQLQuery = @"delete from SmoothieModel where forder = @orderID delete from Orders where totalPrice = 0;";
 
             using(SqlConnection con = new SqlConnection(_connectionStrings))
            {
                con.Open();
 
                SqlCommand command = new SqlCommand(SQLQuery, con);
-               
+               command.Parameters.AddWithValue("@orderID", orderID);
                command.ExecuteNonQuery();
            } 
         }
