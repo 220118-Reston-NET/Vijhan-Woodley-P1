@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using P0BL;
 using P0Model;
+using Serilog;
 
 namespace P0Api.Controllers
 {
@@ -65,22 +66,34 @@ namespace P0Api.Controllers
 
 
 
-        // POST: api/P0
-        [HttpPost("Add Customer")]
+        /// <summary>
+        /// Method allows customer to add sign up information.
+        /// </summary>
+        /// <param name="c_customer"></param>
+        /// <returns></returns>
+        [HttpPost("Add_Customer")]
         public IActionResult Post([FromBody] Customer c_customer)
         {
             try
             {
-                
+                Log.Information("Adding customer \n" + c_customer);
                 return Ok(_cusBL.AddCustomer(c_customer));
             }
             catch (System.Exception)
             {
-                
+                Log.Warning("Unable to add customer");
                 return Conflict();
             }
         }
-
+        /// <summary>
+        /// Method allows customer to add smoothie to cart.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <param name="combonumber"></param>
+        /// <param name="quantity"></param>
+        /// <param name="Cupsize"></param>
+        /// <returns></returns>
         [HttpPost("AddSmoothieToCart{email}/{password}/{combonumber}/{quantity}/{Cupsize}")]
         public IActionResult AddSmoothieToCart(string email, string password, int combonumber, int quantity, string Cupsize)
         {
@@ -90,7 +103,7 @@ namespace P0Api.Controllers
             }
             catch (System.Exception)
             {
-                
+                Log.Warning("Unable to add smoothie to cart.");
                 return NotFound("Customer not found.");
             }
 
@@ -98,19 +111,32 @@ namespace P0Api.Controllers
             {
                 _newSmoothie = new SmoothieModel(combonumber, Cupsize, quantity);
                 tempSmoList.Add(_newSmoothie);
+                Log.Information("Smoothie added to cart \n" + _newSmoothie);
+
                 return Ok(tempSmoList);
             }else
            {
+               Log.Warning("Customer password incorrect.");
                return NotFound("Password incorrect");
            }
         }
 
+        /// <summary>
+        /// Allows customer to view cart
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("ViewCart")]
         public IActionResult ViewCart()
         {
+            Log.Information("Customer viewing cart.");
             return Ok(tempSmoList);
         }
 
+        /// <summary>
+        /// Allows customer to save smoothies in cart to an order.
+        /// </summary>
+        /// <param name="StoreId"></param>
+        /// <returns></returns>
         [HttpPost("SaveOrder{StoreId}")]
         public IActionResult SaveOrder(int StoreId)
         {
@@ -140,11 +166,12 @@ namespace P0Api.Controllers
 
                 try
                 {
-                    
+                    Log.Information("Saving smoothie to order \n" + item);
                      _smoBL.AddSmoothie(item, 1);
                 }
                 catch (System.Exception exe)
                 {
+                    Log.Warning("Unable to save smoothie to order.");
                     _cusBL.DeleteOrder(_order.OrderID);
                     return Conflict(exe.Message);
                 }
@@ -192,11 +219,12 @@ namespace P0Api.Controllers
                 
                 try
                 {
-                    
+                    Log.Information("Saving smoothie to order \n" + item);
                      _smoBL.AddSmoothie(item, 2);
                 }
                 catch (System.Exception exe)
                 {
+                    Log.Warning("Unable to save smoothie to order.");
                     _cusBL.DeleteOrder(_order.OrderID);
                     return Conflict(exe.Message);
                 }
@@ -226,7 +254,7 @@ namespace P0Api.Controllers
             }
         }
 
-        [HttpPost("Order Smoothie{email}/{password}/{combonumber}/{quantity}/{Cupsize}/{StoreId}")]
+        /*[HttpPost("Order Smoothie{email}/{password}/{combonumber}/{quantity}/{Cupsize}/{StoreId}")]
         public IActionResult AddSmoothie(string email, string password, int combonumber, int quantity, string Cupsize, int StoreId)
         {
             try
@@ -369,6 +397,6 @@ namespace P0Api.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-        }
+        }*/
     }
 }

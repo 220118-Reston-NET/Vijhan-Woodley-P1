@@ -1,5 +1,6 @@
 using P0BL;
 using P0DL;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,10 @@ builder.Services.AddScoped<ICustomerBL, CustomerBL>();
 builder.Services.AddScoped<IRepository>(repo => new Repository(builder.Configuration.GetConnectionString("Reference2DB")));
 builder.Services.AddScoped<ISmoothieBL, SmoothieBL>();
 var app = builder.Build();
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("./logs/user.txt")
+    .CreateLogger();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

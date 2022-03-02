@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+NhDZRYhdTzfiHAkRmPPIRqI6BXibmSQeGKBaTi65SWX0wDe4o31UqOLzhnOW2ATOxhmRJkCJa378AZGHBZW7g==",
+  "dgSpecHash": "Cal/ohSp++4EfwBGkHVN6sUhx5G5U8wHajhGUyHMYw0MwdhK5x+riqQkrOv/XZ5GmJfAguZ5UqzSclHW9T29ew==",
   "success": true,
   "projectFilePath": "C:\\Users\\PSXSLHP185\\P1\\P0Api\\P0Api.csproj",
   "expectedPackageFiles": [
@@ -85,6 +85,8 @@
     "C:\\Users\\PSXSLHP185\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\PSXSLHP185\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\PSXSLHP185\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\PSXSLHP185\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
+    "C:\\Users\\PSXSLHP185\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\PSXSLHP185\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\PSXSLHP185\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\PSXSLHP185\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

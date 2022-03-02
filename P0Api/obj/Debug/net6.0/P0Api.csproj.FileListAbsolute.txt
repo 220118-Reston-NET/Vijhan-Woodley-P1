@@ -480,3 +480,5 @@ C:\Users\PSXSLHP185\P1\P0Api\bin\Debug\net6.0\P0Model.dll
 C:\Users\PSXSLHP185\P1\P0Api\bin\Debug\net6.0\P0BL.pdb
 C:\Users\PSXSLHP185\P1\P0Api\bin\Debug\net6.0\P0DL.pdb
 C:\Users\PSXSLHP185\P1\P0Api\bin\Debug\net6.0\P0Model.pdb
+C:\Users\PSXSLHP185\P1\P0Api\bin\Debug\net6.0\Serilog.dll
+C:\Users\PSXSLHP185\P1\P0Api\bin\Debug\net6.0\Serilog.Sinks.File.dll
