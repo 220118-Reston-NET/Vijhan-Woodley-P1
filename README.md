@@ -6,21 +6,21 @@ It also comes with admin functionality that let's store owners replenish invento
 
 =====Roles / Responsibilities===== 
 
-Add a new customer
+-Add a new customer
 
-Search for a customer
+-Search for a customer
 
-Verify customer/manager credentials
+-Verify customer/manager credentials
 
-Place orders to store locations for customers
+-Place orders to store locations for customers
 
-View order history of customer/Store
+-View order history of customer/Store
 
-View location inventory
+-View location inventory
 
-The manager should be able to replenish inventory
+-The manager should be able to replenish inventory
 
-The customer should be able to purchase multiple products
+-The customer should be able to purchase multiple products
 
 ======Environment / Technologies====== 
 
